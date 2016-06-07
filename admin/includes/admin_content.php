@@ -7,19 +7,12 @@
                             Admin Page
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-            </div>
+<?php
+                        $user = new User();
+                        $user->find_all_users();
+                        print_r($user);
+                        ?>
+                      
             <!-- /.container-fluid -->
 
         </div>
