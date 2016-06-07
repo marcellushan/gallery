@@ -8,9 +8,18 @@
                             <small>Subheading</small>
                         </h1>
 <?php
-                        $user = new User();
-                        $user->find_all_users();
-                        print_r($user);
+
+                       
+//                        $result_set = User::find_user_by_id(3);
+//                        while ($row = $result_set->fetch(PDO::FETCH_ASSOC))
+//                        {
+//                        	echo $row['username'];
+//                        }
+
+						$users = User::find_all_users();
+						foreach ($users as $user) {
+							echo $user->password;
+						}
                         ?>
                       
             <!-- /.container-fluid -->
