@@ -16,10 +16,12 @@
 //                        	echo $row['username'];
 //                        }
 
-						$users = User::find_all_users();
-						foreach ($users as $user) {
-							echo $user->password;
-						}
+// 						$users = User::find_all_users();
+// 						foreach ($users as $user) {
+// 							echo $user->password;
+// 						}
+						$found_user = User::find_user_by_id(3);
+						echo $found_user->username;
                         ?>
                       
             <!-- /.container-fluid -->
