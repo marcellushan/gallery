@@ -9,4 +9,8 @@ function __autoload($class) {
 		die("Not Found");
 	}
 }
+
+function redirect($location) {
+	header("Location: {$location}");
+}
 ?>
