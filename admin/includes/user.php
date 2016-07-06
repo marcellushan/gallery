@@ -26,9 +26,9 @@ class User {
 		global $database;
 		$result_set = $database->setQuery($sql);
 		$the_object_array = array();
-		while ($row = $result_set->fetch(PDO::FETCH_ASSOC))
+		while ($row = $result_set->fetch(PDO::FETCH_OBJ))
 		{
-			$the_object_array[] = self::instantiation($row);
+			$the_object_array[] = $row;
 		}
 		return $the_object_array;
 	}
