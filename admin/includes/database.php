@@ -81,12 +81,12 @@ class MySQLdatabase
 	
 $database = new MySQLdatabase();
 
-$sql = "select * from users where id=1";
+// $sql = "select * from users where id=1";
 
-$result= $database->setQuery($sql);
+// $result= $database->setQuery($sql);
 //$result = $sth->fetch(PDO::FETCH_ASSOC);
-$rs = $database->fetch_array($result);
-print_r($rs);
+// $rs = $database->fetch_array($result);
+// print_r($rs);
 
 ?>
 
