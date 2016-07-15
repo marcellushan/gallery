@@ -36,8 +36,8 @@ class User {
 	public static function verify_user($username, $password) {
 	global $database;
 	
-	$username = $database->username;
-	$password = $database->password;
+	//$username = $database->username;
+	//$password = $database->password;
 	
 	$sql = "SELECT * FROM users WHERE ";
 	$sql .= "username = '{$username}' ";
