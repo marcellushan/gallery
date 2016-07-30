@@ -63,4 +63,18 @@ class User {
 		$object_properties = get_object_vars($this);
 		array_key_exists($the_attribute, $object_properties);
 	}
-}
+	
+	public function create() {
+	global $database;
+	
+	$sql = "INSERT INTO users (username, password, first_name, last_name)";
+	$sql .= "VALUES ('";
+	$sql .= $database->username . "', '";
+	$sql .= $database->password . "', '";
+	$sql .= $database->first_name . "', '";
+	$sql .= $database->last_name . "')";
+	}
+	
+	
+	
+}  // End of Class
