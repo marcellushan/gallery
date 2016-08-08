@@ -76,9 +76,8 @@ class MySQLdatabase
 							$result_set= $result_set->fetch(PDO::FETCH_ASSOC);
 							return $result_set;
 					}
-
-	} //close class
-	
+					
+} //end of class
 $database = new MySQLdatabase();
 
 // $sql = "select * from users where id=1";

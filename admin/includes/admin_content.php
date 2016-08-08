@@ -9,19 +9,22 @@
                         </h1>
 <?php
 
-                       
-//                        $result_set = User::find_user_by_id(3);
-//                        while ($row = $result_set->fetch(PDO::FETCH_ASSOC))
-//                        {
-//                        	echo $row['username'];
-//                        }
-
-// 						$users = User::find_all_users();
-// 						foreach ($users as $user) {
-// 							echo $user->password;
-// 						}
-						/*$found_user = User::find_user_by_id(3);
-						echo $found_user->username; */
+			//$user = new User();
+			
+// 			$user->username = "Example_username";
+// 			$user->password = "Example_password";
+// 			$user->first_name = "Example_first";
+// 			$user->last_name = "Example_last";
+			
+// 			$user->create();
+			$user_record = User::find_user_by_id(4);
+			$user = User::instantiation($user_record);
+			
+			$user->last_name = "Hannah";
+			
+			$user->update();
+			
+			
                         ?>
                       
             <!-- /.container-fluid -->

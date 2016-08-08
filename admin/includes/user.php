@@ -49,7 +49,7 @@ class User {
 	
 	}
 	
-	private static function instantiation($the_record){
+	public static function instantiation($the_record){
 		$the_object = new self;
 		foreach ($the_record as $the_attribute => $value) {
 			$the_object->$the_attribute = $value;
@@ -65,14 +65,35 @@ class User {
 	}
 	
 	public function create() {
-	global $database;
+		global $database;
+		
+		$sql = "INSERT INTO users (username, password, first_name, last_name)";
+		$sql .= "VALUES ('";
+		$sql .= $this->username . "', '";
+		$sql .= $this->password . "', '";
+		$sql .= $this->first_name . "', '";
+		$sql .= $this->last_name . "')";
+
+		if($database->setQuery($sql)) {
+			$this->id = $database->connection->lastInsertId();
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
-	$sql = "INSERT INTO users (username, password, first_name, last_name)";
-	$sql .= "VALUES ('";
-	$sql .= $database->username . "', '";
-	$sql .= $database->password . "', '";
-	$sql .= $database->first_name . "', '";
-	$sql .= $database->last_name . "')";
+	public function update() {
+		global $database;
+		$sql = "UPDATE users SET ";
+		$sql .= "username= '" . $this->username . "', '";
+		$sql .= "password= '" . $this->password . "', '";
+		$sql .= "first_name= '" . $this->first_name . "', '";
+		$sql .= "last_name= '" . $this->last_name . "'";
+		$sql .= " WHERE id= " . $this->id;
+		
+		$database->setQuery($sql);
+		return ($database->rowCount() == 1) ? true : false;
+		
 	}
 	
 	
