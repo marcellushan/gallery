@@ -26,9 +26,9 @@ class User {
 		global $database;
 		$result_set = $database->setQuery($sql);
 		$the_object_array = array();
-		while ($row = $result_set->fetch(PDO::FETCH_OBJ))
+		while ($row = $result_set->fetch(PDO::FETCH_ASSOC))
 		{
-			$the_object_array[] = $row;
+			$the_object_array[] = self::instantiation($row);
 		}
 		return $the_object_array;
 	}
@@ -85,17 +85,19 @@ class User {
 	public function update() {
 		global $database;
 		$sql = "UPDATE users SET ";
-		$sql .= "username= '" . $this->username . "', '";
-		$sql .= "password= '" . $this->password . "', '";
-		$sql .= "first_name= '" . $this->first_name . "', '";
+		$sql .= "username= '" . $this->username . "', ";
+		$sql .= "password= '" . $this->password . "', ";
+		$sql .= "first_name= '" . $this->first_name . "', ";
 		$sql .= "last_name= '" . $this->last_name . "'";
 		$sql .= " WHERE id= " . $this->id;
 		
 		$database->setQuery($sql);
-		return ($database->rowCount() == 1) ? true : false;
+		//echo $sql;
+		return;//($database->rowCount() == 1) ? true : false;
 		
 	}
 	
 	
 	
 }  // End of Class
+

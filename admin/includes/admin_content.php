@@ -9,7 +9,7 @@
                         </h1>
 <?php
 
-			//$user = new User();
+			$user = new User();
 			
 // 			$user->username = "Example_username";
 // 			$user->password = "Example_password";
@@ -17,12 +17,15 @@
 // 			$user->last_name = "Example_last";
 			
 // 			$user->create();
-			$user_record = User::find_user_by_id(4);
-			$user = User::instantiation($user_record);
-			
-			$user->last_name = "Hannah";
-			
+			$user = User::find_user_by_id(3);
+			echo $user->username;
+			$user->username="James";
+			echo $user->username;
 			$user->update();
+			
+			//$user->last_name = "Hannah";
+			
+			//$user->update();
 			
 			
                         ?>
