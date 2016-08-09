@@ -64,6 +64,12 @@ class User {
 		array_key_exists($the_attribute, $object_properties);
 	}
 	
+	public function save() {
+		
+		return isset($this->id) ? $this->update() : $this->create();
+		
+	}
+	
 	public function create() {
 		global $database;
 		
@@ -90,11 +96,25 @@ class User {
 		$sql .= "first_name= '" . $this->first_name . "', ";
 		$sql .= "last_name= '" . $this->last_name . "'";
 		$sql .= " WHERE id= " . $this->id;
-		
-		$database->setQuery($sql);
+		$theConn = $database->connection;
+		$theQuery = $theConn->prepare($sql);
+		$theQuery->execute();
+		//$database->prepare($sql);
 		//echo $sql;
-		return;//($database->rowCount() == 1) ? true : false;
+		return ($theQuery->rowCount() == 1) ? true : false;
 		
+	}
+	
+	public function delete() {
+		global $database;
+		$sql = "DELETE FROM users WHERE ";
+		$sql .= " id= " . $this->id;
+		$theConn = $database->connection;
+		$theQuery = $theConn->prepare($sql);
+		$theQuery->execute();
+		//echo $sql;
+		return ($theQuery->rowCount() == 1) ? true : false;
+	
 	}
 	
 	
