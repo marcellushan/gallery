@@ -15,9 +15,13 @@
 //  			$user->password = "Example_password";
 //  			$user->first_name = "Example_first";
 //  			$user->last_name = "Example_last";
-				$user = User::find_user_by_id(4);	
-				$user->username="hose";
- 			$user->save();
+// 				$user = User::find_user_by_id(5);
+				$users = User::find_all();
+				foreach ($users as $user) {
+					echo $user->username;
+				}
+// 				$user->username;
+//  			$user->save();
 
 			//echo $user->username;
 
