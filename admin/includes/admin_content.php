@@ -16,10 +16,10 @@
 //  			$user->first_name = "Example_first";
 //  			$user->last_name = "Example_last";
 // 				$user = User::find_user_by_id(5);
-				$users = User::find_all();
-				foreach ($users as $user) {
-					echo $user->username;
-				}
+// 				$photos = Photo::find_all();
+// 				foreach ($photos as $photo) {
+// 					echo $photo->title;
+// 				}
 // 				$user->username;
 //  			$user->save();
 
@@ -31,6 +31,14 @@
 			//$user->last_name = "Hannah";
 			
 			//$user->update();
+			
+				$photo = new Photo();
+					
+				 			$photo->title = "Example_username";
+				 			$photo->size = "20";
+// 				 			$photo->first_name = "Example_first";
+// 				 			$photo->last_name = "Example_last";
+				 			$photo->save();
 			
 			
                         ?>
